@@ -28,3 +28,23 @@ $.mainWindow.addEventListener("close", function()
 {
 	$.destroy();
 });
+
+$.table.addEventListener('click', function(_event){
+	
+	//get the correct model
+	var model = Alloy.Collections.cars_getByCid(_event.rowData.modeId);
+	
+	//create the controller and pass the model to it
+	var detailController = Alloy.createController("detail",
+	{
+		data: model
+	});
+	
+	//get view returns to root view when no view ID is provided
+	detailController.getView().open(
+		{
+			modal: true	
+		}
+	);
+	
+});
