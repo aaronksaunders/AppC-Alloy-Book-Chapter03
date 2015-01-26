@@ -5,7 +5,7 @@ Alloy.Collections.instance("cars");
 
 //create a new controller for the view-controller pair
 //this will render the TableView
-var carsController = Alloy.creatController("cars");
+var carsController = Alloy.createController("cars");
 
 //add the data to the collection after the  view-controller pair is created
 Alloy.Collections.cars.reset(

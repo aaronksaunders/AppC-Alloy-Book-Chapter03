@@ -1,5 +1,4 @@
+<!-- nothing needed here, we'll be switching to another view immediately -->
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<!-- nothing goes here -->
 </Alloy>
