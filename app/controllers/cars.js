@@ -32,7 +32,8 @@ $.mainWindow.addEventListener("close", function()
 $.table.addEventListener('click', function(_event){
 	
 	//get the correct model
-	var model = Alloy.Collections.cars_getByCid(_event.rowData.modeId);
+	//var model = Alloy.Collections.cars.getByCid(_event.rowData.modeId);
+	var model = Alloy.Collections.cars.get(_event.rowData.modeId);
 	
 	//create the controller and pass the model to it
 	var detailController = Alloy.createController("detail",
