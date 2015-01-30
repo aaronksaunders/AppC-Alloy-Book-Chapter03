@@ -1,6 +1,15 @@
 <!-- //views/cars/xml -->
 <Alloy>
-	<Window id="mainWindow">
+	<NavigationWindow platform="ios" id="navWindow" >
+		<Window id="mainWindow" >
+			<TableView id="table" dataCollection="cars" dataTransform="transform" dataFilter="filter">
+				<TableViewRow title="{title}" modelId="{id}" />
+			</TableView>
+		</Window>
+	</NavigationWindow>
+
+	<!-- -->
+	<Window id="mainWindow" platform="android">
 		<TableView id="table" dataCollection="cars" dataTransform="transform" dataFilter="filter">
 			<TableViewRow title="{title}" modelId="{id}" />
 		</TableView>

@@ -4,7 +4,7 @@ var args = arguments[0] || {};
 
 //close the window when the button is clicked
 $.closeBtn.addEventListener("click", function(){
-	$.detailWindow.close();
+	$.getView().navWindow ? $.getView().navWindow.close() : $.getView().close();
 });
 
 //instance variable use in data binding to the model

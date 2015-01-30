@@ -4,7 +4,8 @@
 "#detailWindow" : {
 	title:"Car Detail Window",
 	layout:"vertical",
-	backgroundColor : "white"
+	backgroundColor : "white",
+	modal : true
 },
 "Label" : {
 	top: 10,

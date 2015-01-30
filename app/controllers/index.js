@@ -7,27 +7,32 @@ Alloy.Collections.instance("cars");
 //this will render the TableView
 var carsController = Alloy.createController("cars");
 
+// some special handling to make the window open
+// with a title bar
+// @see the xml for platform specific code
+if (OS_IOS) {
+	carsController.navWindow.open();
+} else {
+	carsController.mainWindow.open();
+}
+
+
 //add the data to the collection after the  view-controller pair is created
 Alloy.Collections.cars.reset([{
-	"id" : 1,
 	"make" : "Honda",
 	"model" : "Civic"
 }, {
-	"id" : 2,
 	"make" : "Honda",
 	"model" : "Accord"
 }, {
-	"id" : 3,
 	"make" : "Ford",
 	"model" : "Escape"
 }, {
-	"id" : 4,
 	"make" : "Ford",
 	"model" : "Mustang"
 }, {
-	"id" : 5,
 	"make" : "Nissan",
 	"model" : "Altima"
 }]);
 
-carsController.mainWindow.open();
+

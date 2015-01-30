@@ -1,54 +1,69 @@
 //controllers/cars.js
-function transform(model){
+function transform(model) {
 	//convert the model to a JSON object
 	var carObject = model.toJSON();
-	var output = 	
-	{
+	var output = {
 		"title" : carObject.model + " by " + carObject.make,
-		"id" :model.cid
+		"id" : model.cid
 	};
+
+	console.log(output);
 	return output;
 }
 
 //show only cars made by Honda
-function filter(collection)
-{
-	return collection.where(
-		{
-			make: "Honda"
-		}
-	);
+function filter(collection) {
+	return collection.where({
+		make : "Honda"
+	});
 }
 
 //this is an event listener to ensure that the TalbleView bindings are cleaned up
 //correctly and no memory leaks are left
 
 //Free the model-view data binding resources when the view-controller closes
-$.mainWindow.addEventListener("close", function()
-{
+$.mainWindow.addEventListener("close", function() {
 	$.destroy();
 });
 
-$.table.addEventListener('click', function(_event){
-	
+$.table.addEventListener('click', function(_event) {
+
 	//get the correct approach
 	//
 	// The properties synch adapter that is provided by appcelerator does not set the model.id so get
 	// will never work. See the appcelerator documentation on Backbone Sync Adapters
 	var model = Alloy.Collections.cars.getByCid(_event.rowData.modelId);
 	//var model = Alloy.Collections.cars.get(_event.rowData.modelId);
-	
+
 	//create the controller and pass the model to it
-	var detailController = Alloy.createController("detail",
-	{
-		data: model
+	var detailController = Alloy.createController("detail", {
+		data : model
 	});
-	
+
 	//get view returns to root view when no view ID is provided
-	detailController.getView().open(
-		{
-			modal: true	
-		}
-	);
-	
+	openAsModal(detailController.getView());
+
 });
+
+/**
+ * helper function for opening a modal window in IOS with the 
+ * proper title bar
+ * 
+ * @param {Object} _view
+ */
+function openAsModal(_view) {
+	if (OS_IOS) {
+		var navWindow = Titanium.UI.iOS.createNavigationWindow({
+			window : _view
+		});
+
+		_view.navWindow = navWindow;
+		navWindow.open({
+			modal : true
+		});
+	} else {
+		_view.open({
+			modal : true
+		});
+	}
+}
