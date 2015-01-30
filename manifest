@@ -1,8 +1,8 @@
-#appname: CIDM4385_Chapter03_Demo_Modified
-#publisher: jeff
-#url: http://www.cis.wtamu.edu
-#image: appicon.png
-#appid: edu.wtamu.cis.cidm4385.CIDM4385_Chapter03_Demo_Modified
-#desc: undefined
-#type: mobile
-#guid: 18f4bbc9-994a-445a-bc48-9cd098e10bef
+#appname:CIDM4385_Chapter03_Demo_Modified
+#publisher:jeff
+#url:http://www.cis.wtamu.edu
+#image:appicon.png
+#appid:edu.wtamu.cis.cidm4385.CIDM4385.Chapter03
+#desc:undefined
+#type:mobile
+#guid:18f4bbc9-994a-445a-bc48-9cd098e10bef

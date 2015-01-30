@@ -31,9 +31,12 @@ $.mainWindow.addEventListener("close", function()
 
 $.table.addEventListener('click', function(_event){
 	
-	//get the correct model
-	//var model = Alloy.Collections.cars.getByCid(_event.rowData.modeId);
-	var model = Alloy.Collections.cars.get(_event.rowData.modeId);
+	//get the correct approach
+	//
+	// The properties synch adapter that is provided by appcelerator does not set the model.id so get
+	// will never work. See the appcelerator documentation on Backbone Sync Adapters
+	var model = Alloy.Collections.cars.getByCid(_event.rowData.modelId);
+	//var model = Alloy.Collections.cars.get(_event.rowData.modelId);
 	
 	//create the controller and pass the model to it
 	var detailController = Alloy.createController("detail",
